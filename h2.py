@@ -153,10 +153,14 @@ for epoch in range(N_epochs):
         updatePlot()
         plt.pause(0.1)
 
-plt.savefig('spiral_results1.jpg') # Save the figure showing the results in the current directory
+plt.savefig('spiral_results1.png') # Save the figure showing the results in the current directory
 
 plt.show()
 
 a = sess.run(aL, feed_dict={x:X_test,y:y_test})
 predicted_class3 = np.argmax(a, axis=1)
 accuracy3 = np.mean(predicted_class3 == y_test)
+
+
+plt.plot(T_test, predicted_class3)
+plt.show()
